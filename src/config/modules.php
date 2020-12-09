@@ -1,4 +1,4 @@
 <?php
 return [
-    'modelPath' => "Models\\"
+    'modelPath' => "Models/"
 ];
