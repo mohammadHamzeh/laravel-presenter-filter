@@ -1,6 +1,7 @@
 ## Presenter-Filter Laravel
 ### Filter
 This package allows you to easily handle database filtering through query strings.
+
 example: /users?status=1&name='kami'
 ### Presenter
 Sometimes our models get too fat, and that can make our development a lot harder.

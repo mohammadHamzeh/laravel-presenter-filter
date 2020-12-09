@@ -13,7 +13,6 @@
         }
     ],
     "license": "MIT",
-    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "mhamzeh\\packageFp\\": "src/"
