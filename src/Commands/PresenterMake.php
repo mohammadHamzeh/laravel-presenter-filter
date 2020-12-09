@@ -204,7 +204,7 @@ class PresenterMake extends Command
         /*End Import Name Space*/
 
         /*import Class*/
-        $originalContent = $this->importClassAndTraitInModel($originalContent);
+        $originalContent = $this->importClassAndTraitInModel($originalContent,$modelName);
         /*End Import Class*/
 
         /*updateFile Model */
@@ -247,11 +247,16 @@ class PresenterMake extends Command
      * @throws FileNotFoundException
      */
     private
-    function importClassAndTraitInModel($originalContent): \Illuminate\Support\Stringable
+    function importClassAndTraitInModel($originalContent,$model): \Illuminate\Support\Stringable
     {
+        $search = "Model\n{";
+        if ($model == "User" or $model =='user')
+        {
+            $search= "Authenticatable\n{";
+        }
         $setting = [
             'stubImportClass' => __DIR__ . "/stubs/Presenter/presenterImportClass&Trait.stub",
-            'search2' => "Model\n{"
+            'search2' => $search
         ];
         $stub = $this->file->get($setting['stubImportClass']);
         $stub = Str::of($stub)->replace('{{ namePresenter }}', $this->nameClass);
