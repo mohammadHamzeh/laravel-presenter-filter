@@ -1,12 +1,12 @@
 ## Presenter-Filter Laravel
-###Filter
+### Filter
 This package allows you to easily handle database filtering through query strings.
 example: /users?status=1&name='kami'
-###Presenter
+### Presenter
 Sometimes our models get too fat, and that can make our development a lot harder.
 In this case, we use a second class that has the same function as the model and is used as a second model, and the Harrow method can be included in this class.
 
-##Installation
+## Installation
 you can install the package via composer:
 ```bash
 composer require mohammad-hamzeh/presenter-filter
@@ -14,12 +14,12 @@ composer require mohammad-hamzeh/presenter-filter
 
 You Must by publishing configuration by issuing following artisan command ```php artisan vendor:publish```.
     
-##Introduction
+## Introduction
 The package allows you to create two types of classes: filter class and presenter class
 
-##Usage
+## Usage
 You have access to two commands and you can use them to create your own filter and presenter classes
-####make:filter command
+#### make:filter command
 You can use the following command to create a new filter.
 
 ```php artisan make:filter UserFilter```
@@ -34,7 +34,7 @@ options:
 
 Used by default Models folder If you have saved models elsewhere, change the config Modules of this folder
 
-####make:presenter Command
+#### make:presenter Command
 You can use the following command to create a new Presenter
 
 ```php artisan make:presenter UserPresenter```
@@ -45,7 +45,7 @@ options:
 
 ```php artisan make:presenter UserPresenter --model=User```
 
-##Example With Filter
+## Example With Filter
 Let's say you want to use filterable on User model. You will have to create the filter class App/Filters/PostFilter.php (```php artisan make:filter PostFilter --model=Post```)
 
 If you use the --model option, filterable will be added directly to the model
@@ -87,7 +87,7 @@ public function index()
 ```
 
 
-##Example With Presenter
+## Example With Presenter
 Let's say you want to use Presentable And introduce the presenter class on User model. You will have to create the filter class App/Presenter/UserPresenter.php (```php artisan make:presenter UserPresenter --model=User```)
 
 If you use the --model option, Presentable and presenter class will be added directly to the model
