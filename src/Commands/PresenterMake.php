@@ -200,7 +200,7 @@ class PresenterMake extends Command
         $originalContent = $this->file->get($fullPath);
 
         /*import NameSpace*/
-        $originalContent = $this->importNameSpaceModel($PresenterNameSpace, $originalContent);
+        $originalContent = $this->importNameSpaceModel($PresenterNameSpace, $originalContent,$modelName);
         /*End Import Name Space*/
 
         /*import Class*/
@@ -214,16 +214,21 @@ class PresenterMake extends Command
 
     /**
      * @param $PresenterNameSpace
-     * @param array $setting
      * @param string $originalContent
+     * @param $modelName
      * @return \Illuminate\Support\Stringable|string
-     * @throws FileNotFoundException
      */
     private
-    function importNameSpaceModel($PresenterNameSpace, string $originalContent)
+    function importNameSpaceModel($PresenterNameSpace, string $originalContent,$modelName)
     {
+        $search = "use Illuminate\Database\Eloquent\Model;\n";
+        if ($modelName == "User" or $modelName =='user')
+        {
+            $search= "use Illuminate\Foundation\Auth\User as Authenticatable;";
+        }
+
         $setting = [
-            'search' => "use Illuminate\Database\Eloquent\Model;\n",
+            'search' =>$search ,
             'stubNameSpace' => __DIR__ . "/stubs/Presenter/presenterImportNamespace.stub",
             'namespace' => '{{ namespace }}',
         ];
