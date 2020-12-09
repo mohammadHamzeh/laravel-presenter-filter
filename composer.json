@@ -21,7 +21,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "MohammadHamzeh\\packageFp\\PresenterFilterServiceProvider"
+                "mhamzeh\\packageFp\\PresenterFilterServiceProvider"
             ]
         }
     }
