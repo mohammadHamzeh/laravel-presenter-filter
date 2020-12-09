@@ -1,0 +1,2 @@
+use {{ namespace }}
+use mhamzeh\packageFp\Presenter\Contracts\Presentable;

@@ -1,0 +1,10 @@
+<?php
+
+namespace {{ namespace }};
+
+use mhamzeh\packageFp\Presenter\Contracts\Presenter;
+
+class {{ class }} extends Presenter
+{
+  
+}

@@ -1,0 +1,3 @@
+
+    use Presentable;
+    protected $presenter = {{ namePresenter }}::class;

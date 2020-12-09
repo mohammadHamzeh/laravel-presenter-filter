@@ -1,0 +1,29 @@
+{
+    "name": "mhamzeh/presenter-filter",
+    "authors": [
+        {
+            "name": "Mohammad Hamzeh",
+            "email": "mr.hamze00@gmail.com"
+        }
+    ],
+    "authors": [
+        {
+            "name": "Mohammad Hamze",
+            "email": "mr.hamze00@gmail.com"
+        }
+    ],
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "mhamzeh\\packageFp\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MohammadHamzeh\\packageFp\\PresenterFilterServiceProvider"
+            ]
+        }
+    }
+}
