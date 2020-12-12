@@ -1,4 +1,8 @@
 ## Presenter-Filter Laravel
+
+## Introduction
+The package allows you to create two types of classes: filter class and presenter class
+
 ### Filter
 This package allows you to easily handle database filtering through query strings.
 
@@ -15,9 +19,6 @@ composer require mohammad-hamzeh/presenter-filter
 
 You Must by publishing configuration by issuing following artisan command ```php artisan vendor:publish```.
     
-## Introduction
-The package allows you to create two types of classes: filter class and presenter class
-
 ## Usage
 You have access to two commands and you can use them to create your own filter and presenter classes
 #### make:filter command
