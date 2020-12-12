@@ -14,7 +14,7 @@ In this case, we use a second class that has the same function as the model and 
 ## Installation
 you can install the package via composer:
 ```bash
-composer require mohammad-hamzeh/presenter-filter
+composer require mhamzeh/presenter-filter
 ```
 
 You Must by publishing configuration by issuing following artisan command ```php artisan vendor:publish```.
