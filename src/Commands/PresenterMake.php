@@ -195,7 +195,7 @@ class PresenterMake extends Command
     private
     function UpdateModel($modelName, $PresenterNameSpace)
     {
-        $modelPath = config('modules.modelPath');
+        $modelPath = config('package-modules.modelPath');
         $fullPath = app_path("$modelPath$modelName.php");
         $originalContent = $this->file->get($fullPath);
 

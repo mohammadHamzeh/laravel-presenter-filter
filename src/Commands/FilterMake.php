@@ -168,7 +168,7 @@ class FilterMake extends Command
      */
     private function updateModel($model, string $filterNameSpace)
     {
-        $modelPath = config('modules.modelPath');
+        $modelPath = config('package-modules.modelPath');
         $fullPath = app_path("$modelPath$model.php");
         $originalContent = $this->file->get($fullPath);
 
