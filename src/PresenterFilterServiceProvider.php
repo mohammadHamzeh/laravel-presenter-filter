@@ -20,7 +20,7 @@ class PresenterFilterServiceProvider extends ServiceProvider
             PresenterMake::class
         ]);
         $this->publishes([
-            __DIR__.'../config' => config_path('/'),
+            __DIR__.'/../config' => config_path('/'),
         ]);
     }
 
