@@ -173,11 +173,11 @@ class FilterMake extends Command
         $originalContent = $this->file->get($fullPath);
 
         /*import NameSpace*/
-        $originalContent = $this->importNameSpaceModel($originalContent);
+        $originalContent = $this->importNameSpaceModel($originalContent,$model);
         /*End Import Name Space*/
 
         /*import Class*/
-        $originalContent = $this->importClassAndTraitInModel($originalContent);
+        $originalContent = $this->importClassAndTraitInModel($originalContent,$model);
         /*End Import Class*/
 
         /*updateFile Model */
@@ -187,15 +187,21 @@ class FilterMake extends Command
     }
 
     /**
+     * @param string $originalContent
      * @return \Illuminate\Support\Stringable
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      * @var string $originalContent
      * import the NameSpace Filterable to Model
      */
-    private function importNameSpaceModel(string $originalContent)
+    private function importNameSpaceModel(string $originalContent,$model)
     {
+        $search = "use Illuminate\Database\Eloquent\Model;\n";
+        if ($model == "User" or $model =='user')
+        {
+            $search= "use Illuminate\Foundation\Auth\User as Authenticatable;";
+        }
+
         $setting = [
-            'search' => "use Illuminate\Database\Eloquent\Model;\n",
+            'search' => $search,
             'stubNameSpace' => __DIR__ . "/stubs/Filters/filterImportNamespace.stub",
         ];
         $stub = $this->file->get($setting['stubNameSpace']);
@@ -210,11 +216,17 @@ class FilterMake extends Command
      * @return Stringable
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
-    private function importClassAndTraitInModel($originalContent)
+    private function importClassAndTraitInModel($originalContent,$model)
     {
+        $search = "Model\n{";
+        if ($model == "User" or $model =='user')
+        {
+            $search= "Authenticatable\n{";
+        }
+
         $setting = [
             'stubImportClass' => __DIR__ . "/stubs/Filters/filterImportClass&Trait.stub",
-            'search2' => "Model\n{"
+            'search2' => $search
         ];
         $stub = $this->file->get($setting['stubImportClass']);
         $stub = $setting['search2'] . $stub;
